@@ -117,7 +117,17 @@ public class Ahorcado {
      * palabraEnmascarada([c,a,r,a,m,b,a,n,o], [T,T,T,T,F,F,T,T,T]) -> cara**ano
      */
     public static String palabraEnmascarada(char[] col, boolean[] aciertos) {
-        return null;
+        String s = "";
+        for (int i = 0; i < col.length; i++) {
+            if (col[i] == ' ') {
+                s += ' ';    
+            } else if (aciertos[i]) {
+                s += col[i];
+            } else {
+                s += '*';
+            }
+        }
+        return s;
     }
 
     /*
@@ -126,7 +136,11 @@ public class Ahorcado {
      * POST: Returns true if all positions in the collection are true
      */
     public static boolean haAcertadoTodo(boolean[] aciertos) {
-        return false;
+        boolean todoAciertos = true;
+        for (int i = 0; i < aciertos.length && todoAciertos; i++) {
+            todoAciertos = aciertos[i];
+        }
+        return todoAciertos;
     }
 
     /****************************************************************************/
